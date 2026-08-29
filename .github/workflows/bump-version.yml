@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: AGPL-3.0-only
-# SPDX-FileCopyrightText: 2026 callmetango for SonicDE.org
+# SPDX-FileCopyrightText: 2026 callmetango for XLibre
 
 name: Bump Version of Package
 on:
@@ -36,12 +36,16 @@ on:
 permissions:
   contents: write
 
+defaults:
+  run:
+    shell: sh
+
 env:
   REPOSITORY: ${{ inputs.repository || github.repository }}
 
 jobs:
   bump-version:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Set up environment
         run: |
